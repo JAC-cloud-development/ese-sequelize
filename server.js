@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+require('dotenv').config()
 var corsOptions = {};
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
@@ -11,7 +12,7 @@ const db = require("./app/models");
 db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
-    res.json({ message: "Welcome to bezkoder application." });
+    res.json({ message: "Welcome to application." });
 });
 
 require("./app/routes/tutorial.routes")(app);
